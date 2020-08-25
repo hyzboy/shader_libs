@@ -1,0 +1,21 @@
+<root>
+    <module>
+        <import name="WorldMatrix"/>
+    </module>
+    <stream>
+        in vec4 Vertex
+        in vec4 TexCoord
+        out vec4 GeometryTexCoord
+    </stream>
+    <main>
+        vec4 lt=vec4(Vertex.xy,vec2(0,1));
+        vec4 rb=vec4(Vertex.zw,vec2(0,1));
+
+        vec4 lt_fin=lt*world.ortho;
+        vec4 rb_fin=rb*world.ortho;
+
+        GeometryTexCoord=TexCoord;
+
+        gl_Position=vec4(lt_fin.xy,rb_fin.xy);
+    </main>
+</root>

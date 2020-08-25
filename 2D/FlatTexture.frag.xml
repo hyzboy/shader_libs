@@ -1,0 +1,14 @@
+<root>
+    <sampler>
+        2D tex
+    </sampler>
+    <in>TexCoord2D</in>
+    <out>Color</out>
+    <stream>
+        in vec2 FragmentTexCoord
+    </stream>
+
+    <main>
+        FragColor=texture(tex,FragmentTexCoord);
+    </main>
+</root>

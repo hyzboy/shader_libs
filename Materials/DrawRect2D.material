@@ -1,0 +1,10 @@
+<root>
+	<shader
+		vert="2D/DrawRect2D"
+		geom="2D/DrawRect2D"
+		frag="2D/FlatTexture">
+	</shader>
+	<pipeline prim="rectangles">
+		<depth test="true" write="true" op=">="/>
+	</pipeline>
+</root>

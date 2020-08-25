@@ -1,0 +1,4 @@
+<root>
+	<vertex_attrib type="vec4" name="BaseColor_Metallic" comment="基本颜色与金属度"/>
+	<vertex_attrib type="vec4" name="Normal_Roughness" comment="法线与粗糙度"/>
+</root>
