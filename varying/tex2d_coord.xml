@@ -1,0 +1,3 @@
+<root>
+	<varying type="vec2" name="TexCoord" comment="2D纹理坐标"/>
+</root>

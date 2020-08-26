@@ -1,0 +1,3 @@
+﻿<root>
+	<varying type="vec4" name="FragColor" comment="最终输出颜色"/>
+</root>
