@@ -1,0 +1,4 @@
+<root>
+	<module path="modules"/>
+	<varying path="varying"/>
+</root>
