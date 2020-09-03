@@ -1,0 +1,7 @@
+<root>
+	<files type="varying">
+		color.xml
+		pbr_cnmr.xml
+		tex2d_coord.xml
+	</files>
+</root>
