@@ -1,0 +1,8 @@
+<root>
+	<files type="glsl">
+		Color.glsl
+		ColorSpace.glsl
+		Gamma.glsl
+		pack_float.glsl
+	</files>
+</root>
