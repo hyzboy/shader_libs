@@ -2,6 +2,8 @@
 	<files type="varying">
 		color.xml
 		pbr_cnmr.xml
-		tex2d_coord.xml
+		texcoord2f.xml
+        position3f.xml
+        position4f.xml
 	</files>
 </root>
