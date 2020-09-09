@@ -1,21 +1,18 @@
 <root>
-	<ubo name="WorldMatrix" value="world">
-		<cpp>hgl/graph/WorldMatrix.h</cpp>
-		<code>
-			mat4 ortho;
+    <struct name="WorldMatrix" cpp="hgl/graph/WorldMatrix.h">
+        mat4 ortho;
 
-			mat4 projection;
-			mat4 inverse_projection;
+        mat4 projection;
+        mat4 inverse_projection;
 
-			mat4 modelview;
-			mat4 inverse_modelview;
+        mat4 modelview;
+        mat4 inverse_modelview;
 
-			mat4 mvp;
-			mat4 inverse_mvp;
+        mat4 mvp;
+        mat4 inverse_mvp;
 
-			vec4 view_pos;
-			vec2 canvas_resolution;
-			vec2 viewport_resolution;
-		</code>
-	</ubo>
+        vec4 view_pos;
+        vec2 canvas_resolution;
+        vec2 viewport_resolution;
+    </struct>
 </root>
