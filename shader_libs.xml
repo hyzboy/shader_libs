@@ -1,5 +1,7 @@
 <root>
-	<folder path="modules" type="module"/>
-	<folder path="varying" type="varying"/>
-	<folder path="Functions" type="module"/>
+    <folder>
+        modules
+        varying
+        Functions
+    </folder>
 </root>
