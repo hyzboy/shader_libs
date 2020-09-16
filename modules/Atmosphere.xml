@@ -1,0 +1,7 @@
+<root>
+    <struct name="Atmosphere">
+    vec3 position;
+    float intensity;
+    float scattering_direction;
+    </struct>
+</root>

@@ -1,6 +1,6 @@
 <root>
 	<files type="varying">
-		color.xml
+		FragColor.xml
 		pbr_cnmr.xml
 		texcoord2f.xml
         position3f.xml
