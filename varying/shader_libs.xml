@@ -1,9 +1,12 @@
 <root>
-	<files type="varying">
-		FragColor.xml
-		pbr_cnmr.xml
-		texcoord2f.xml
+    <files type="varying">
+        FragColor.xml
+        pbr_cnmr.xml
+        texcoord2f.xml
+        color3f.xml
+        color4f.xml
+        position2f.xml
         position3f.xml
         position4f.xml
-	</files>
+    </files>
 </root>
