@@ -1,8 +1,10 @@
 <root>
-	<files>
-		PushConstant3D.glsl
-		WorldMatrix.xml
+    <files>
+        PushConstant3D.glsl
+        WorldMatrix.xml
         Atmosphere.xml
         Atmosphere.glsl
-	<files>
+        HQFilter.glsl
+        ColorMaterial.xml
+    <files>
 </root>

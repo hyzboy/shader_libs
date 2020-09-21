@@ -1,0 +1,5 @@
+<root>
+    <struct name="ColorMaterial">
+        vec4 color;
+    </struct>
+</root>
