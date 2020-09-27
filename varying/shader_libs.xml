@@ -3,6 +3,7 @@
         FragColor.xml
         pbr_cnmr.xml
         texcoord2f.xml
+        texcoord4f.xml
         color3f.xml
         color4f.xml
         position2f.xml
