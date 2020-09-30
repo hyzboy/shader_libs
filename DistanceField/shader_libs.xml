@@ -1,0 +1,7 @@
+<root>
+    <files type="glsl">
+        sdCircle.glsl
+        sdTriangle.glsl
+        udSegment.glsl
+    </files>
+</root>

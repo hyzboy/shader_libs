@@ -3,5 +3,7 @@
         modules
         varying
         Functions
+        DistanceField
+        2dVector
     </folder>
 </root>

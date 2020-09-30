@@ -1,0 +1,17 @@
+<root>
+    <struct name="Line2DConfig">
+        float width;
+	float border;
+    </struct>
+
+    <raw>udSegment</raw>
+
+    <code>
+    float line2d(in vec2 pos,in vec2 start,in vec2 end,in float line_width,const float blur)
+    {
+        float df=udSegment(pos,start,end)-line_width;
+
+        return clamp(smoothstep(0.0,blur,-df),0.0,1.0);
+    }
+    </code>
+</root>
