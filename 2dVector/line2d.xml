@@ -1,7 +1,7 @@
 <root>
     <struct name="Line2DConfig">
         float width;
-	float border;
+        float border;
     </struct>
 
     <raw>udSegment</raw>
