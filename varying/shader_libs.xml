@@ -11,5 +11,7 @@
         position3f.xml
         position4f.xml
         normal.xml
+        normal_tangent.xml
+        normalmap.xml
     </files>
 </root>

@@ -1,0 +1,5 @@
+﻿<root>
+    <varying type="vec3" name="TangentLightPos"/>
+    <varying type="vec3" name="TangentViewPos"/>
+    <varying type="vec3" name="TangentFragPos"/>
+</root>
