@@ -1,0 +1,13 @@
+<root>
+    <struct name="PhongLight">
+        vec3 color;
+        vec3 position;
+    </struct>
+
+    <struct name="PhongMaterial">
+        vec4 BaseColor;
+
+        float ambient;
+        float specular;
+    </struct>
+</root>

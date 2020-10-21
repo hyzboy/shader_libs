@@ -11,7 +11,7 @@
         mat4 mvp;
         mat4 inverse_mvp;
 
-        vec4 view_pos;
+        vec3 view_pos;
         vec2 canvas_resolution;
         vec2 viewport_resolution;
     </struct>
