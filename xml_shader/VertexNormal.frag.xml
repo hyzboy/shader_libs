@@ -12,20 +12,20 @@
 
     <main>
         //ambient
-        vec3    ambient     =phong.ambient*light.color;
+        vec3    ambient     =phong.ambient*phong.BaseColor.rgb;
 
         //diffuse
         vec3    light_dir   =normalize(light.position-Position.xyz);
         float   diff        =max(dot(Normal,light_dir),0.0);
-        vec3    diffuse     =diff*light.color;
+        vec3    diffuse     =diff*phong.BaseColor.rgb;
 
         //specular
         vec3    view_dir    =normalize(fs_world.view_pos-Position.xyz);
         vec3    reflect_dir =reflect(-light_dir,Normal);
-        float   spec        =pow(max(dot(view_dir,reflect_dir),0.0),32);
-        vec3    specular    =phong.specular*spec*light.color;
+        float   spec        =pow(max(dot(view_dir,reflect_dir),0.0),phong.specular.a);
+        vec3    specular    =phong.specular.rgb*spec;
 
-        FragColor=vec4((ambient+diffuse+specular),1.0)*phong.BaseColor;
+        FragColor=vec4(ambient+diffuse+specular,1.0);
     </main>
 </root>
 

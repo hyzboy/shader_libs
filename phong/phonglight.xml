@@ -6,8 +6,7 @@
 
     <struct name="PhongMaterial">
         vec4 BaseColor;
-
+        vec4 specular;
         float ambient;
-        float specular;
     </struct>
 </root>
