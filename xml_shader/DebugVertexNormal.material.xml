@@ -1,0 +1,4 @@
+<root>
+    <shader type="vert" filename="DebugVertexNormal"/>
+    <shader type="frag" filename="VertexColor"/>
+</root>

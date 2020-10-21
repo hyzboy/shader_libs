@@ -6,5 +6,6 @@
         Atmosphere.glsl
         HQFilter.glsl
         ColorMaterial.xml
+        Normal.glsl
     <files>
 </root>

@@ -1,0 +1,21 @@
+<root>
+    <in>
+        position3f
+        texcoord2f
+        normal
+    </in>
+    <out>
+        texcoord2f
+        normal
+    </out>
+
+    <uniform>WorldMatrix world;</uniform>
+    <raw>PushConstant3D</raw>
+
+    <main>
+        out_Normal=normalize(mat3(transpose(inverse(world.modelview*pc.local_to_world)))*Normal);
+
+        out_TexCoord=TexCoord;
+        gl_Position=world.mvp*pc.local_to_world*vec4(Position,1.0);
+    </main>
+</root>
