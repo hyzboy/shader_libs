@@ -7,9 +7,8 @@
 
         mat4 modelview;
         mat4 inverse_modelview;
-        mat3 normal;
 
-        layout(offset=384) mat4 mvp;
+        mat4 mvp;
         mat4 inverse_mvp;
 
         vec4 view_pos;
