@@ -1,0 +1,4 @@
+<root>
+    <shader type="vert" filename="TextureNormal"/>
+    <shader type="frag" filename="TextureParallax"/>
+</root>

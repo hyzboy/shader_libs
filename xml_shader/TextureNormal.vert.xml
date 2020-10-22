@@ -15,17 +15,14 @@
     </uniform>
     <raw>
         PushConstant3D
-        Normal
     </raw>
 
     <main>
         out_Position=pc.local_to_world*vec4(Position,1.0);
         out_TexCoord=TexCoord;
 
-        mat3 normal_matrix=GetWorldNormalMatrix();
-
-        vec3 T=normalize(normal_matrix*Tangent);
-        vec3 N=normalize(normal_matrix*Normal);
+        vec3 T=normalize(pc.normal*Tangent);
+        vec3 N=normalize(pc.normal*Normal);
 
         T = normalize(T - dot(T, N) * N);
         vec3 B = cross(N, T);

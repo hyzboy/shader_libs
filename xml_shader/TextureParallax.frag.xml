@@ -1,0 +1,44 @@
+<root>
+    <in>
+        position4f
+        texcoord2f
+        normalmap
+    </in>
+    <out>FragColor</out>
+    <raw>FastParallaxMapping</raw>
+    <uniform>
+        PhongLight fs_light;
+        PhongMaterial phong;
+
+        sampler2D TexColor;
+        sampler2D TexNormal;
+        sampler2D TexHeight;
+    </uniform>
+
+    <main><![CDATA[
+        vec3    view_dir    =normalize(TangentViewPos-TangentFragPos);
+        vec2    tex_coord   =ParallaxMapping(TexCoord,view_dir,0.1);
+
+        if(tex_coord.x > 1.0 || tex_coord.y > 1.0 || tex_coord.x < 0.0 || tex_coord.y < 0.0)
+            discard;
+
+        vec3    color       =texture(TexColor,tex_coord).rgb*phong.BaseColor.rgb;
+        vec3    normal      =normalize(texture(TexNormal,tex_coord).rgb*2.0-1.0);
+
+        //ambient
+        vec3    ambient     =phong.ambient*color;
+
+        //diffuse
+        vec3    light_dir   =normalize(TangentLightPos-TangentFragPos);
+        float   diff        =max(dot(normal,light_dir),0.0);
+        vec3    diffuse     =diff*color;
+
+        //specular
+        vec3    reflect_dir =reflect(-light_dir,normal);
+        float   spec        =pow(max(dot(view_dir,reflect_dir),0.0),phong.specular.a);
+        vec3    specular    =phong.specular.rgb*spec;
+
+        FragColor=vec4(ambient+diffuse+specular,1.0);
+    ]]></main>
+</root>
+

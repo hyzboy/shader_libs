@@ -6,6 +6,7 @@
         Atmosphere.glsl
         HQFilter.glsl
         ColorMaterial.xml
-        Normal.glsl
+        ParallaxMapping.glsl
+        FastParallaxMapping.glsl
     <files>
 </root>
