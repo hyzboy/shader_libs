@@ -13,5 +13,6 @@
         normal.xml
         normal_tangent.xml
         normalmap.xml
+        TBN.xml
     </files>
 </root>
