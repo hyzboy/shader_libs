@@ -5,8 +5,8 @@
         mat4 projection;
         mat4 inverse_projection;
 
-        mat4 modelview;
-        mat4 inverse_modelview;
+        mat4 view;
+        mat4 inverse_view;
         mat4 normal;
 
         mat4 mvp;

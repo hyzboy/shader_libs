@@ -1,0 +1,19 @@
+<root>
+    <in>gb_p4ntt</in>
+    <out>gb_pcn</out>
+    <uniform>
+        sampler2D TexColor;
+        sampler2D TexNormal;
+    </uniform>
+    <main>
+        vec3 N    =normalize(Normal);
+        vec3 T    =normalize(Tangent);
+        vec3 B    =cross(N,T);
+        mat3 TBN  =mat3(T,B,N);
+        vec3 tnorm=TBN*texture(TexNormal,TexCoord).xyz;
+
+        GB_Normal =vec4(tnorm,1.0);
+        GB_Color  =texture(TexColor,TexCoord);
+        GB_Position=Position;
+    </main>
+</root>

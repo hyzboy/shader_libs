@@ -4,6 +4,12 @@
         vec3 position;
     </struct>
 
+    <struct name="PhongPointLight">
+        vec4 color;
+        vec4 position;
+        float radius;
+    </struct>
+
     <struct name="PhongMaterial">
         vec4 BaseColor;
         vec4 specular;

@@ -1,0 +1,50 @@
+<root>
+    <in>position2f</in>
+    <out>FragColor</out>
+    <uniform>
+        WorldMatrix world;
+        sampler2D GB_Position;
+        sampler2D GB_Normal;
+        sampler2D GB_Color;
+        PhongPointLight lights;
+    </uniform>
+    <raw>PushConstant3D</raw>
+
+    <main><![CDATA[
+        vec3 pos    =texture(GB_Position,   Position).xyz;
+        vec3 normal =normalize(texture(GB_Normal,     Position).xyz);
+        vec3 color  =texture(GB_Color,      Position).xyz;
+
+        vec3 fragcolor=color*0.3;
+
+            // vector to light
+            vec3 L=lights.position.xyz-pos;
+
+            // distance from light to fragment position
+            float dist=length(L);
+
+            // viewer to fragment
+            vec3 V=normalize(world.view_pos-pos);
+
+            // light to fragment
+            L=normalize(L);
+
+            // attenuation
+            float atten=lights.radius/(pow(dist,2.0)+1.0);
+
+            //diffuse part
+            vec3 N=normal;
+            float NdotL = max(0.0, dot(N, L));
+            vec3 diff = lights.color.rgb * color * NdotL * atten;
+
+            // Specular part
+            // Specular map values are stored in alpha of albedo mrt
+            vec3 R = reflect(-L, N);
+            float NdotR = max(0.0, dot(R, V));
+            vec3 spec = lights.color.rgb * pow(NdotR, 16.0) * atten;
+
+            fragcolor += diff + spec;
+
+        FragColor=vec4(fragcolor,1.0);
+    ]]></main>
+</root>
