@@ -1,5 +1,5 @@
 <root>
-    <in>gb_p4ntt</in>
+    <in>gb_ntt</in>
     <out>gb_cn</out>
     <uniform>
         sampler2D TexColor;

@@ -1,12 +1,11 @@
 <root>
     <in>gb_pntt</in>
-    <out>gb_p4ntt</out>
+    <out>gb_ntt</out>
 
     <uniform>WorldMatrix world;</uniform>
     <raw>PushConstant3D</raw>
 
     <main>
-        out_Position=pc.local_to_world*vec4(Position,1.0);
         out_Normal  =pc.normal*normalize(Normal);
         out_Tangent =pc.normal*normalize(Tangent);
         out_TexCoord=TexCoord;

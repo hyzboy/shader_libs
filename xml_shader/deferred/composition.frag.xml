@@ -17,21 +17,21 @@
         vec4 clip=vec4(gl_FragCoord.xy*world.inv_viewport_resolution*2.0-1.0,depth,1.0);
         vec4 world_w=world.inverse_mvp*clip;
 
-        vec3 pos=world_w.xyz/world_w.w;
+        vec3 world_pos=world_w.xyz/world_w.w;
 
-        vec3 normal =normalize(texture(GB_Normal,     Position).xyz);
-        vec3 color  =texture(GB_Color,      Position).xyz;
+        vec3 normal =normalize( texture(GB_Normal,  Position).xyz);
+        vec3 color  =           texture(GB_Color,   Position).xyz;
 
         vec3 fragcolor=color*0.3;
 
             // vector to light
-            vec3 L=lights.position.xyz-pos;
+            vec3 L=lights.position.xyz-world_pos;
 
             // distance from light to fragment position
             float dist=length(L);
 
             // viewer to fragment
-            vec3 V=normalize(world.view_pos-pos);
+            vec3 V=normalize(world.view_pos-world_pos);
 
             // light to fragment
             L=normalize(L);
