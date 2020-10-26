@@ -1,6 +1,6 @@
 <root>
     <in>gb_p4ntt</in>
-    <out>gb_pcn</out>
+    <out>gb_cn</out>
     <uniform>
         sampler2D TexColor;
         sampler2D TexNormal;
@@ -14,6 +14,5 @@
 
         GB_Normal =vec4(tnorm,1.0);
         GB_Color  =texture(TexColor,TexCoord);
-        GB_Position=Position;
     </main>
 </root>

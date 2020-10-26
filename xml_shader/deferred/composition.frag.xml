@@ -3,15 +3,22 @@
     <out>FragColor</out>
     <uniform>
         WorldMatrix world;
-        sampler2D GB_Position;
-        sampler2D GB_Normal;
         sampler2D GB_Color;
+        sampler2D GB_Normal;
+        sampler2D GB_Depth;
         PhongPointLight lights;
     </uniform>
     <raw>PushConstant3D</raw>
 
     <main><![CDATA[
-        vec3 pos    =texture(GB_Position,   Position).xyz;
+
+        float depth=texture(GB_Depth,Position).r;
+
+        vec4 clip=vec4(gl_FragCoord.xy*world.inv_viewport_resolution*2.0-1.0,depth,1.0);
+        vec4 world_w=world.inverse_mvp*clip;
+
+        vec3 pos=world_w.xyz/world_w.w;
+
         vec3 normal =normalize(texture(GB_Normal,     Position).xyz);
         vec3 color  =texture(GB_Color,      Position).xyz;
 
