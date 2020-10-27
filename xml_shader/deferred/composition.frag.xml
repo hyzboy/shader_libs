@@ -22,7 +22,7 @@
 
         vec3 world_pos=world_w.xyz/world_w.w;
 
-        vec3 normal =normalize( normal2to3(texture(GB_Normal,  Position).xy));
+        vec3 normal =normal2to3(texture(GB_Normal,  Position).xy);
         vec3 color  =           texture(GB_Color,   Position).xyz;
 
         vec3 fragcolor=color*0.3;

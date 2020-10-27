@@ -13,7 +13,7 @@
         mat3 TBN  =mat3(T,B,N);
         vec3 tnorm=TBN*texture(TexNormal,TexCoord).xyz;
 
-        GB_Normal.rg=normal3to2(tnorm);
+        GB_Normal.rg=normal3to2(normalize(tnorm));
         GB_Color  =texture(TexColor,TexCoord);
     </main>
 </root>
