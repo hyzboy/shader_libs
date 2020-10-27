@@ -5,6 +5,7 @@
         sampler2D TexColor;
         sampler2D TexNormal;
     </uniform>
+    <raw>normal3to2</raw>
     <main>
         vec3 N    =normalize(Normal);
         vec3 T    =normalize(Tangent);
@@ -12,7 +13,7 @@
         mat3 TBN  =mat3(T,B,N);
         vec3 tnorm=TBN*texture(TexNormal,TexCoord).xyz;
 
-        GB_Normal =vec4(tnorm,1.0);
+        GB_Normal.rg=normal3to2(tnorm);
         GB_Color  =texture(TexColor,TexCoord);
     </main>
 </root>

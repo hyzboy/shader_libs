@@ -8,7 +8,10 @@
         sampler2D GB_Depth;
         PhongPointLight lights;
     </uniform>
-    <raw>PushConstant3D</raw>
+    <raw>
+        normal2to3
+        PushConstant3D
+    </raw>
 
     <main><![CDATA[
 
@@ -19,7 +22,7 @@
 
         vec3 world_pos=world_w.xyz/world_w.w;
 
-        vec3 normal =normalize( texture(GB_Normal,  Position).xyz);
+        vec3 normal =normalize( normal2to3(texture(GB_Normal,  Position).xy));
         vec3 color  =           texture(GB_Color,   Position).xyz;
 
         vec3 fragcolor=color*0.3;
