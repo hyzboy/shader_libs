@@ -7,7 +7,7 @@
     <out>
         position4f
         texcoord2f
-        normalmap
+        tangentmap
     </out>
     <uniform>
         PhongLight light;
@@ -23,10 +23,8 @@
 
         vec3 T=normalize(pc.normal*Tangent);
         vec3 N=normalize(pc.normal*Normal);
-
-        T = normalize(T - dot(T, N) * N);
-        vec3 B = cross(N, T);
-    
+        T = normalize(T - dot(T, N) * N);    
+        vec3 B = cross(N, T);    
         mat3 TBN = transpose(mat3(T, B, N));
 
         out_TangentLightPos = TBN * light.position;

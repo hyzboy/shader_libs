@@ -2,7 +2,7 @@
     <in>
         position4f
         texcoord2f
-        normalmap
+        tangentmap
     </in>
     <out>FragColor</out>
     <uniform>
