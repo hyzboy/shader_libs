@@ -1,0 +1,8 @@
+<root>
+    <files>
+        parallax.xml
+        parallaxMapping.glsl
+        steepParallaxMapping.glsl
+        parallaxOcclusionMapping.glsl
+    <files>
+</root>

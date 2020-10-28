@@ -2,13 +2,14 @@
     <in>
         position4f
         texcoord2f
-        normalmap
+        tangentmap
     </in>
     <out>FragColor</out>
-    <raw>FastParallaxMapping</raw>
+    <raw>parallaxOcclusionMapping</raw>
     <uniform>
         PhongLight fs_light;
         PhongMaterial phong;
+        Parallax parallax;
 
         sampler2D TexColor;
         sampler2D TexNormal;
@@ -17,13 +18,15 @@
 
     <main><![CDATA[
         vec3    view_dir    =normalize(TangentViewPos-TangentFragPos);
-        vec2    tex_coord   =ParallaxMapping(TexCoord,view_dir,0.1);
+        vec2    tex_coord   =parallaxOcclusionMapping(TexCoord,view_dir);
 
-        if(tex_coord.x > 1.0 || tex_coord.y > 1.0 || tex_coord.x < 0.0 || tex_coord.y < 0.0)
-            discard;
+    		// Discard fragments at texture border
+    		if (tex_coord.x < 0.0 || tex_coord.x > 1.0 || tex_coord.y < 0.0 || tex_coord.y > 1.0) 
+    			discard;
+    		
 
         vec3    color       =texture(TexColor,tex_coord).rgb*phong.BaseColor.rgb;
-        vec3    normal      =normalize(texture(TexNormal,tex_coord).rgb*2.0-1.0);
+        vec3    normal      =normalize(texture(TexNormal,tex_coord).rgb);
 
         //ambient
         vec3    ambient     =phong.ambient*color;

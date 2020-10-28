@@ -1,0 +1,7 @@
+<root>
+    <struct name="Parallax">
+        float heightScale;
+        float parallaxBias;
+        float numLayers;
+    </struct>
+</root>

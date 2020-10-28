@@ -5,6 +5,7 @@
         Functions
         DistanceField
         2dVector
-	phong
+        phong
+        parallax
     </folder>
 </root>
