@@ -12,7 +12,18 @@
         mat4 mvp;
         mat4 inverse_mvp;
 
-        vec3 view_pos;
+        vec3 pos;
+        vec3 target;
+        vec3 world_forward;
+        vec3 world_right;
+        vec3 world_up;
+
+        vec3 view_line;
+        vec3 camera_direction;
+        vec3 camera_right;
+        vec3 camera_up;
+        vec4 view_distance;
+
         vec2 canvas_resolution;
         vec2 viewport_resolution;
         vec2 inv_viewport_resolution;
