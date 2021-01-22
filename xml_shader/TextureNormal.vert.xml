@@ -28,9 +28,9 @@
         mat3 TBN = transpose(mat3(T, B, N));
 
         out_TangentLightPos = TBN * light.position;
-        out_TangentViewPos  = TBN * world.view_pos;
+        out_TangentViewPos  = TBN * world.pos;
         out_TangentFragPos  = TBN * out_Position.xyz;
 
-        gl_Position=world.mvp*out_Position;
+        gl_Position=world.vp*out_Position;
     </main>
 </root>
