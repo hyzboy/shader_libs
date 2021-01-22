@@ -9,13 +9,11 @@
         mat4 inverse_view;
         mat4 normal;
 
-        mat4 mvp;
-        mat4 inverse_mvp;
+        mat4 vp;
+        mat4 inverse_vp;
 
         vec3 pos;
         vec3 target;
-        vec3 world_forward;
-        vec3 world_right;
         vec3 world_up;
 
         vec3 view_line;
