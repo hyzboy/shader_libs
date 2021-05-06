@@ -1,5 +1,5 @@
 <root>
-    <struct name="WorldMatrix" cpp="hgl/graph/WorldMatrix.h">
+    <struct name="CameraMatrix" cpp="hgl/graph/CameraMatrix.h">
         mat4 ortho;
 
         mat4 projection;
@@ -22,8 +22,18 @@
         vec3 camera_up;
         vec4 view_distance;
 
+        float znear,zfar;
+
         vec2 canvas_resolution;
         vec2 viewport_resolution;
         vec2 inv_viewport_resolution;
+    </struct>
+
+    <struct name="MVPMatrix" cpp="hgl/graph/CameraMatrix.h">
+        mat4 l2w;
+        mat4 inverse_l2w;
+
+        mat4 mvp;
+        mat4 inverse_mvp;
     </struct>
 </root>
