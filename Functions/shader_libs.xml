@@ -6,6 +6,7 @@
         pack_float.glsl
         normal3to2.glsl
         normal2to3.glsl
-        SampleSphericalMap
+        SampleSphericalMap.glsl
+        LinearDepth.glsl
     </files>
 </root>
