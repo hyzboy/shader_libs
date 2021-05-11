@@ -1,7 +1,8 @@
 <root>
     <files>
         PushConstant3D.glsl
-        WorldMatrix.xml
+        CameraInfo.xml
+        LocalToWorld.xml
         Atmosphere.xml
         Atmosphere.glsl
         HQFilter.glsl

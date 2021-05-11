@@ -1,0 +1,9 @@
+<root>
+    <struct name="MVPMatrix" cpp="hgl/graph/MVPMatrix.h">
+        mat4 l2w;
+        mat4 inverse_l2w;
+
+        mat4 mvp;
+        mat4 inverse_mvp;
+    </struct>
+</root>

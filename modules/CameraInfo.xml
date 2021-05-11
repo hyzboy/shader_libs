@@ -1,5 +1,5 @@
 <root>
-    <struct name="CameraMatrix" cpp="hgl/graph/CameraMatrix.h">
+    <struct name="CameraInfo" cpp="hgl/graph/CameraInfo.h">
         mat4 ortho;
 
         mat4 projection;
@@ -16,24 +16,15 @@
         vec3 target;
         vec3 world_up;
 
-        vec3 view_line;
-        vec3 camera_direction;
-        vec3 camera_right;
-        vec3 camera_up;
-        vec4 view_distance;
+        vec4 view_line;             //pos-target, .w is length(.xyz)
+        vec4 camera_direction;      //.w is length(.xyz)
+        vec4 camera_right;          //.w is length(.xyz)
+        vec4 camera_up;             //.w is length(.xyz)
 
         float znear,zfar;
 
         vec2 canvas_resolution;
         vec2 viewport_resolution;
         vec2 inv_viewport_resolution;
-    </struct>
-
-    <struct name="MVPMatrix" cpp="hgl/graph/CameraMatrix.h">
-        mat4 l2w;
-        mat4 inverse_l2w;
-
-        mat4 mvp;
-        mat4 inverse_mvp;
     </struct>
 </root>

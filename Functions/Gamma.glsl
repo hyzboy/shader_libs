@@ -15,8 +15,15 @@ vec3 sRGB2Linear(vec3 srgbIn)
     return vec3(pow(srgbIn.xyz, vec3(GAMMA)));
 }
 
+vec3 sRGB2LinearCheapest(vec3 srgbIn)
+{
+    return srgbIn*srgbIn;
+}
+
 vec3 sRGB2LinearAccurate(vec3 _rgb)
 {
+    //return color <= 0.04045 ? color / 12.92 : pow((color + 0.055) / 1.055, 2.4);
+
 	vec3 lo = _rgb / 12.92;
 	vec3 hi = pow( (_rgb + 0.055) / 1.055, vec3_splat(2.4) );
 	vec3 rgb = mix(hi, lo, vec3(lessThanEqual(_rgb, vec3_splat(0.04045) ) ) );
