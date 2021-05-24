@@ -2,7 +2,7 @@
     <files>
         PushConstant3D.glsl
         CameraInfo.xml
-        LocalToWorld.xml
+        SceneInfo.xml
         Atmosphere.xml
         Atmosphere.glsl
         HQFilter.glsl

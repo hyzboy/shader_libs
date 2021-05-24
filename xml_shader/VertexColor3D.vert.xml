@@ -4,11 +4,13 @@
         color4f
     </in>
     <out>color4f</out>
-    <uniform>WorldMatrix world;</uniform>
-    <raw>PushConstant3D</raw>
+    <uniform>
+        CameraInfo camera;
+        SceneInfo scene;
+    </uniform>
 
     <main>
         out_Color=Color;
-        gl_Position=world.mvp*pc.local_to_world*vec4(Position,1.0);
+        gl_Position=camera.vp*scene.l2w*vec4(Position,1.0);
     </main>
 </root>
