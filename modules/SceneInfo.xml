@@ -1,5 +1,5 @@
 <root>
-    <struct name="SceneInfo" cpp="hgl/graph/MVPMatrix.h">
+    <struct name="SceneInfo" cpp="hgl/graph/SceneInfo.h">
         mat4 l2w;
         mat4 inverse_l2w;
 
