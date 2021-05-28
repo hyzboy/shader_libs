@@ -5,10 +5,10 @@
     </in>
     <out>texcoord2f</out>
 
-    <uniform>WorldMatrix world;</uniform>
+    <uniform>CameraInfo camera;</uniform>
 
     <main>
         out_TexCoord=TexCoord;
-        gl_Position=world.ortho*vec4(Position,0.0,1.0);
+        gl_Position=camera.ortho*vec4(Position,0.0,1.0);
     </main>
 </root>
