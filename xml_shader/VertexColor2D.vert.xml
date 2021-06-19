@@ -7,10 +7,10 @@
     <out>color4f</out>
 
     <uniform>
-        CameraInfo camera;
+        CameraInfo g_camera;
     </uniform>
     <main>
         out_Color=Color;
-        gl_Position=camera.ortho*vec4(Position,0.0,1.0);
+        gl_Position=g_camera.ortho*vec4(Position,0.0,1.0);
     </main>
 </root>
