@@ -5,12 +5,13 @@
     </in>
     <out>color4f</out>
     <uniform>
-        CameraInfo camera;
-        SceneInfo scene;
+        CameraInfo g_camera;
+        SceneInfo r_scene_info;
     </uniform>
 
     <main>
         out_Color=Color;
-        gl_Position=camera.vp*scene.l2w*vec4(Position,1.0);
+        gl_Position=g_camera.vp*r_scene_info.l2w*vec4(Position,1.0);
+        //gl_Position=r_scene.mvp*vec4(Position,1.0);
     </main>
 </root>

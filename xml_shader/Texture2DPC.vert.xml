@@ -5,10 +5,12 @@
     </in>
     <out>texcoord2f</out>
 
-    <raw>PushConstant3D</raw>
+    <uniform>
+        SceneInfo r_scene_info;
+    </uniform>
 
     <main>
         out_TexCoord=TexCoord;
-        gl_Position=pc.local_to_world*vec4(Position,0.0,1.0);
+        gl_Position=r_scene_info.l2w*vec4(Position,0.0,1.0);
     </main>
 </root>
