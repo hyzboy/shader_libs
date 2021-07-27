@@ -4,13 +4,13 @@
         texcoord4f
     </in>
     <out>texcoord4f</out>
-    <uniform>WorldMatrix world;</uniform>
+    <uniform>CameraInfo g_camera;</uniform>
     <main>
         vec4 lt=vec4(Position.xy,vec2(0,1));
         vec4 rb=vec4(Position.zw,vec2(0,1));
 
-        vec4 lt_fin=world.ortho*lt;
-        vec4 rb_fin=world.ortho*rb;
+        vec4 lt_fin=g_camera.ortho*lt;
+        vec4 rb_fin=g_camera.ortho*rb;
 
         out_TexCoord=TexCoord;
 
