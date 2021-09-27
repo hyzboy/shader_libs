@@ -2,7 +2,7 @@
     <in>position2f</in>
     <out>FragColor</out>
     <uniform>
-        WorldMatrix world;
+        CameraInfo g_camera;
         sampler2D GB_Color;
         sampler2D GB_Normal;
         sampler2D GB_Depth;
@@ -10,15 +10,14 @@
     </uniform>
     <raw>
         normal2to3
-        PushConstant3D
     </raw>
 
     <main><![CDATA[
 
         float depth=texture(GB_Depth,Position).r;
 
-        vec4 clip=vec4(gl_FragCoord.xy*world.inv_viewport_resolution*2.0-1.0,depth,1.0);
-        vec4 world_w=world.inverse_mvp*clip;
+        vec4 clip=vec4(gl_FragCoord.xy*g_camera.inv_viewport_resolution*2.0-1.0,depth,1.0);
+        vec4 world_w=g_camera.inverse_vp*clip;
 
         vec3 world_pos=world_w.xyz/world_w.w;
 
@@ -34,7 +33,7 @@
             float dist=length(L);
 
             // viewer to fragment
-            vec3 V=normalize(world.view_pos-world_pos);
+            vec3 V=normalize(g_camera.pos-world_pos);
 
             // light to fragment
             L=normalize(L);
