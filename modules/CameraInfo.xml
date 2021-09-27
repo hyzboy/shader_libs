@@ -7,7 +7,7 @@
 
         mat4 view;
         mat4 inverse_view;
-        mat4 normal;
+        mat3 normal;
 
         mat4 vp;
         mat4 inverse_vp;
