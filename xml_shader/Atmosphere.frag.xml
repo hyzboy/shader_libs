@@ -6,10 +6,8 @@
 
     <main>
         <![CDATA[
-        vec3 nrd=vec3(Position.x,-Position.y,Position.z);       //vulkan coord to opengl(shader from opengl sample)
-
         vec3 color=atmosphere(
-            nrd,                            // normalized ray direction
+            Position.xyz,                            // normalized ray direction
             vec3(0,6372e3,0),               // ray origin
             sun.position,                   // position of the sun
             sun.intensity,                  // intensity of the sun
