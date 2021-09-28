@@ -6,14 +6,11 @@
     <out>texcoord2f</out>
 
     <uniform>
-        WorldMatrix world;
-        <global>
-            LocalToWorld l2w;
-        </global>
+        SceneInfo r_scene_info;
     </uniform>
 
     <main>
         out_TexCoord=TexCoord;
-        gl_Position=world.vp*l2w.model*vec4(Position,1.0);
+        gl_Position=r_scene_info.mvp*vec4(Position,1.0);
     </main>
 </root>
