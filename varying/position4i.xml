@@ -1,0 +1,3 @@
+<root>
+	<varying type="ivec4" name="Position" comment="位置"/>
+</root>
