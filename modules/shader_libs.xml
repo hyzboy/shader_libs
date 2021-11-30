@@ -9,5 +9,6 @@
         ColorMaterial.xml
         ParallaxMapping.glsl
         FastParallaxMapping.glsl
+        RectVertexPosition.glsl
     <files>
 </root>
