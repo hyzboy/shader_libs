@@ -8,5 +8,7 @@
         normal2to3.glsl
         SampleSphericalMap.glsl
         LinearDepth.glsl
+        Noise2d.glsl
+        Chessboard.glsl
     </files>
 </root>

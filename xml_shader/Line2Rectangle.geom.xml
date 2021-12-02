@@ -3,7 +3,7 @@
 
     <out>alpha</out>
     <uniform>
-        WorldMatrix world;
+        CameraInfo g_camera;
         Line2DConfig line2d_config;
     </uniform>
 
@@ -24,14 +24,14 @@
         vec2 in_p=vec2(i.y,-i.x);
         vec2 in_n=vec2(-i.y,i.x);
 
-        gl_Position=world.ortho*vec4(s+out_p,vec2(0,1));out_Alpha=0.0;EmitVertex();
-        gl_Position=world.ortho*vec4(e+out_p,vec2(0,1));out_Alpha=0.0;EmitVertex();
-        gl_Position=world.ortho*vec4(s+ in_p,vec2(0,1));out_Alpha=1.0;EmitVertex();
-        gl_Position=world.ortho*vec4(e+ in_p,vec2(0,1));out_Alpha=1.0;EmitVertex();
-        gl_Position=world.ortho*vec4(s+ in_n,vec2(0,1));out_Alpha=1.0;EmitVertex();
-        gl_Position=world.ortho*vec4(e+ in_n,vec2(0,1));out_Alpha=1.0;EmitVertex();
-        gl_Position=world.ortho*vec4(s+out_n,vec2(0,1));out_Alpha=0.0;EmitVertex();
-        gl_Position=world.ortho*vec4(e+out_n,vec2(0,1));out_Alpha=0.0;EmitVertex();
+        gl_Position=g_camera.ortho*vec4(s+out_p,vec2(0,1));out_Alpha=0.0;EmitVertex();
+        gl_Position=g_camera.ortho*vec4(e+out_p,vec2(0,1));out_Alpha=0.0;EmitVertex();
+        gl_Position=g_camera.ortho*vec4(s+ in_p,vec2(0,1));out_Alpha=1.0;EmitVertex();
+        gl_Position=g_camera.ortho*vec4(e+ in_p,vec2(0,1));out_Alpha=1.0;EmitVertex();
+        gl_Position=g_camera.ortho*vec4(s+ in_n,vec2(0,1));out_Alpha=1.0;EmitVertex();
+        gl_Position=g_camera.ortho*vec4(e+ in_n,vec2(0,1));out_Alpha=1.0;EmitVertex();
+        gl_Position=g_camera.ortho*vec4(s+out_n,vec2(0,1));out_Alpha=0.0;EmitVertex();
+        gl_Position=g_camera.ortho*vec4(e+out_n,vec2(0,1));out_Alpha=0.0;EmitVertex();
         EndPrimitive();
     </main>
 </root>

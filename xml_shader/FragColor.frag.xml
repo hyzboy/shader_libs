@@ -4,7 +4,7 @@
     </uniform>
 
     <out>
-											  FragColor
+        FragColor
     </out>
 
     <main>
