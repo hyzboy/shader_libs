@@ -12,6 +12,8 @@
         mat4 vp;
         mat4 inverse_vp;
 
+        mat4 sky;
+
         vec3 pos;
         vec3 target;
         vec3 world_up;

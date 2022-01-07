@@ -5,11 +5,16 @@
     <out>texcoord3f</out>
 
     <uniform>
-        SceneInfo r_scene_info;
+        CameraInfo g_camera;
     </uniform>
 
     <main>
         out_TexCoord=Position;
-        gl_Position=r_scene_info.mvp*vec4(Position,1.0);
+
+// @see SaschaWillems cubemap example
+	// Convert cubemap coordinates into Vulkan coordinate space
+        out_TexCoord.xy*=-1.0;
+
+        gl_Position=g_camera.sky*vec4(Position,1.0);
     </main>
 </root>
