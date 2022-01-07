@@ -1,0 +1,15 @@
+<root>
+    <in>
+        position3f
+    </in>
+    <out>texcoord3f</out>
+
+    <uniform>
+        SceneInfo r_scene_info;
+    </uniform>
+
+    <main>
+        out_TexCoord=Position;
+        gl_Position=r_scene_info.mvp*vec4(Position,1.0);
+    </main>
+</root>

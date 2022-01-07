@@ -1,0 +1,4 @@
+<root>
+    <shader type="vert" filename="Skybox"/>
+    <shader type="frag" filename="Skybox"/>
+</root>

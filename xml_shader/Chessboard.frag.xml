@@ -1,0 +1,13 @@
+<root>
+    <uniform>
+        CameraInfo g_camera;
+    </uniform>
+
+    <out>
+        FragColor
+    </out>
+
+    <main>
+        FragColor=vec4(gl_FragCoord.xy/g_camera.viewport_resolution,0,1);
+    </main>
+</root>
