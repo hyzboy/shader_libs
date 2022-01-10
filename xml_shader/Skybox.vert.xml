@@ -15,6 +15,6 @@
 	// Convert cubemap coordinates into Vulkan coordinate space
         out_TexCoord.xy*=-1.0;
 
-        gl_Position=g_camera.sky*vec4(Position,1.0);
+        gl_Position=g_camera.sky*vec4(Position*g_camera.zfar,1.0);
     </main>
 </root>
