@@ -9,11 +9,9 @@
     </uniform>
 
     <main>
-        out_TexCoord=Position;
 
-// @see SaschaWillems cubemap example
-	// Convert cubemap coordinates into Vulkan coordinate space
-        out_TexCoord.xy*=-1.0;
+        //from vulkan Z up to Cubemap(OpenGL) coordinate
+        out_TexCoord=Position.xzy;
 
         gl_Position=g_camera.sky*vec4(Position*g_camera.zfar,1.0);
     </main>
