@@ -14,7 +14,8 @@
 
     <main>
         out_Position=(r_scene_info.l2w*vec4(Position,1.0)).xyz;
-        out_Normal=(r_scene_info.l2w*vec4(Normal,1.0)).xyz;
+        out_Normal=mat3(r_scene_info.l2w)*Normal;
+
         gl_Position=g_camera.vp*vec4(out_Position,1.0);
     </main>
 </root>

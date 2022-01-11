@@ -21,5 +21,6 @@
         gb_ntt.xml
         gb_pcn.xml
         gb_cn.xml
+        ViewLight.xml
     </files>
 </root>
