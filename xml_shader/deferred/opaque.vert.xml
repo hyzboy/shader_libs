@@ -8,8 +8,8 @@
     </uniform>
 
     <main>
-        out_Normal  =g_camera.normal*normalize(Normal);
-        out_Tangent =g_camera.normal*normalize(Tangent);
+        out_Normal  =r_scene_info.normal*normalize(Normal);
+        out_Tangent =r_scene_info.normal*normalize(Tangent);
         out_TexCoord=TexCoord;
 
         gl_Position=r_scene_info.mvp*vec4(Position,1.0);
