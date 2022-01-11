@@ -10,5 +10,6 @@
         ParallaxMapping.glsl
         FastParallaxMapping.glsl
         RectVertexPosition.glsl
+        EnvCubemap.glsl
     <files>
 </root>
