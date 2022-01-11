@@ -1,8 +1,8 @@
 <root>
     <struct name="SceneInfo" cpp="hgl/graph/SceneInfo.h">
         mat4 l2w;   //model
-        mat3 normal;//normal;
-        mat4 mv;    //model * view
-        mat4 mvp;   //projection * model * view
+        mat3 normal;//normal=transpose(inverse(l2w));
+        mat4 mv;    //view*model
+        mat4 mvp;   //projection * view * model
     </struct>
 </root>

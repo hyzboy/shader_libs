@@ -1,7 +1,7 @@
 <root>
     <in>
-        position3f
         normal
+        position3f
     </in>
     <out>FragColor</out>
     <uniform>
@@ -11,7 +11,13 @@
     </uniform>
     <raw>EnvCubemap</raw>
     <main>
-        vec3 uvw=GetEnvCubemapCoord(Position-g_camera.pos,normalize(Normal));
+//        vec3 view_vector=Position;
+//        view_vector.y*=-1.0f;
+//        vec3 uvw=reflect(view_vector,Normal);
+//        uvw.xz*=-1.0;
+//        FragColor=texture(EnvCubemap,uvw.xzy);
+
+        vec3 uvw=GetEnvCubemapCoord(Position,Normal);
 
         FragColor=texture(EnvCubemap,uvw);
     </main>
