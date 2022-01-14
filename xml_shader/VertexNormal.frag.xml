@@ -5,9 +5,9 @@
     </in>
     <out>FragColor</out>
     <uniform>
+        CameraInfo g_camera;
         PhongLight light;
         PhongMaterial phong;
-        WorldMatrix fs_world;
     </uniform>
 
     <main>
@@ -20,7 +20,7 @@
         vec3    diffuse     =diff*phong.BaseColor.rgb;
 
         //specular
-        vec3    view_dir    =normalize(fs_world.view_pos-Position.xyz);
+        vec3    view_dir    =normalize(g_camera.pos-Position.xyz);
         vec3    reflect_dir =reflect(-light_dir,Normal);
         float   spec        =pow(max(dot(view_dir,reflect_dir),0.0),phong.specular.a);
         vec3    specular    =phong.specular.rgb*spec;

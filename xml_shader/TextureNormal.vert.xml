@@ -16,7 +16,7 @@
     </uniform>
 
     <main>
-        out_Position=r_scene_info.l2w*vec4(Position,1.0);
+        out_Position=r_scene_info.model*vec4(Position,1.0);
         out_TexCoord=TexCoord;
 
         vec3 T=normalize(r_scene_info.normal*Tangent);
