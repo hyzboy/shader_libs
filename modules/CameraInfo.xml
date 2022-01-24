@@ -13,13 +13,9 @@
 
         mat4 sky;
 
-        vec3 pos;
-        vec3 world_up;
-
+        vec3 pos;                   //eye
         vec3 view_line;             //pos-target
-        vec3 camera_direction;
-        vec3 camera_right;
-        vec3 camera_up;
+        vec3 world_up;
 
         float znear,zfar;
 
