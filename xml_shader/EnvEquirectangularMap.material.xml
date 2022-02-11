@@ -1,0 +1,4 @@
+<root>
+    <shader type="vert" filename="EnvCubemap"/>
+    <shader type="frag" filename="EnvEquirectangularMap"/>
+</root>

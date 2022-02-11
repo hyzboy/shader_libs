@@ -5,14 +5,14 @@
     </in>
     <out>FragColor</out>
     <uniform>
-        samplerCube EnvCubemap;
+        sampler2D Envmap;
         CameraInfo g_camera;
         SceneInfo r_scene_info;
     </uniform>
     <raw>EnvCubemap</raw>
     <main>
-        vec3 uvw=GetEnvCubemapCoord(Position,Normal);
+        vec2 uv=GetEquirectangularMapCoord(Position,Normal);
 
-        FragColor=texture(EnvCubemap,uvw);
+        FragColor=texture(Envmap,uv);
     </main>
 </root>
