@@ -13,8 +13,8 @@
     </uniform>
 
     <main>
-        out_Position=normalize(vec3(r_scene_info.l2w*vec4(Position,1.0)));
-        out_Normal=normalize(mat3(r_scene_info.l2w)*Normal);
+        out_Position=normalize(vec3(r_scene_info.model*vec4(Position,1.0)));
+        out_Normal=normalize(mat3(r_scene_info.model)*Normal);
 
         gl_Position=r_scene_info.mvp*vec4(Position,1.0);
     </main>

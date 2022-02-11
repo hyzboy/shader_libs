@@ -11,6 +11,6 @@
 
     <main>
         out_TexCoord=TexCoord;
-        gl_Position=r_scene_info.l2w*vec4(Position,0.0,1.0);
+        gl_Position=r_scene_info.model*vec4(Position,0.0,1.0);
     </main>
 </root>
