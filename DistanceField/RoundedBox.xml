@@ -1,3 +1,11 @@
+<root>
+    <struct name="RoundedBoxConfig">
+        vec4 Color;
+        vec4 InColor;
+        vec4 OutColor;
+        float LineWidth;
+    </struct>
+    <code>
 /**
  * 圆角矩形
  * @see https://www.shadertoy.com/view/4llXD7
@@ -16,3 +24,5 @@ float sdRoundBox( in vec2 cp, in vec2 rect, in vec4 ri ,in vec2 canvas_res)
     vec2 q = abs(p)-b+r.x;
     return min(max(q.x,q.y),0.0) + length(max(q,0.0)) - r.x;
 }
+    </code>
+</root>

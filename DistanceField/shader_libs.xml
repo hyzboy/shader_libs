@@ -3,6 +3,6 @@
         sdCircle.glsl
         sdTriangle.glsl
         udSegment.glsl
-        sdRoundBox.glsl
+        RoundedBox.xml
     </files>
 </root>
