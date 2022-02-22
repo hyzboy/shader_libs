@@ -3,6 +3,7 @@
         vec4 Color;
         vec4 InColor;
         vec4 OutColor;
+        vec4 Radius;
         float LineWidth;
     </struct>
     <code>
@@ -15,9 +16,9 @@
  */
 float sdRoundBox( in vec2 cp, in vec2 rect, in vec4 ri ,in vec2 canvas_res)
 {
-    vec2 p=(cp-rect.xy+rect.zw/2.0)/canvas_res;
-    vec2 b=rect.zw/canvas_res;
-    vec4 r=ri/canvas_res;
+    vec2 p=(cp-rect.xy+rect/2.0)/canvas_res;
+    vec2 b=rect/canvas_res;
+    vec4 r=ri;
 
     r.xy = (p.x>0.0)?r.xy : r.zw;
     r.x  = (p.y>0.0)?r.x  : r.y;

@@ -1,0 +1,15 @@
+<root>
+    <in>
+        position4f
+    </in>
+    <out>FragColor</out>
+    <uniform>
+        RoundedBoxConfig rb_config;
+    </uniform>
+
+    <module>RoundedBox</module>
+
+    <main>
+
+    </main>
+</root>

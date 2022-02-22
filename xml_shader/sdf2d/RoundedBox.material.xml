@@ -1,0 +1,5 @@
+<root>
+    <shader type="vert" filename="RoundedBox"/>
+    <shader type="geom" filename="RoundedBox"/>
+    <shader type="frag" filename="RoundedBox"/>
+</root>

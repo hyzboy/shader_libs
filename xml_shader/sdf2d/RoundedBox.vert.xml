@@ -1,0 +1,14 @@
+<root>
+    <in>
+        RoundedBox
+    </in>
+
+    <out>
+        RoundedBox
+    </out>
+
+    <main>
+        out_Position=r_scene_info.mvp*vec4(Position.x,-Position.y,Position.z,1.0);
+        gl_Position=out_Position;
+    </main>
+</root>
