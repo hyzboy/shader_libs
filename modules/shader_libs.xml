@@ -11,5 +11,6 @@
         FastParallaxMapping.glsl
         RectVertexPosition.glsl
         EnvCubemap.glsl
+        SkyColor.glsl
     <files>
 </root>
