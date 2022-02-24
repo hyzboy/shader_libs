@@ -3,27 +3,38 @@
         vec4 Color;
         vec4 InColor;
         vec4 OutColor;
-        vec4 Radius;
+        vec4 Radius;            //bottom-right,top-right,bottom-left,top-left
         float LineWidth;
     </struct>
     <code>
-/**
- * 圆角矩形
- * @see https://www.shadertoy.com/view/4llXD7
- * @param cp 当前点位置
- * @parma rect 宽高
- * @param ri 边角圆半径(top-right,bottom-right,top-left,bottom-left)
- */
-float sdRoundBox( in vec2 cp, in vec2 rect, in vec4 ri ,in vec2 canvas_res)
+float sdRoundBox( in vec2 p, in vec2 b, in vec4 r)
 {
-    vec2 p=(cp-rect.xy+rect/2.0)/canvas_res;
-    vec2 b=rect/canvas_res;
-    vec4 r=ri;
-
     r.xy = (p.x>0.0)?r.xy : r.zw;
     r.x  = (p.y>0.0)?r.x  : r.y;
     vec2 q = abs(p)-b+r.x;
     return min(max(q.x,q.y),0.0) + length(max(q,0.0)) - r.x;
+}
+
+float sdRoundBox( in vec2 p, in vec2 b, in float r)
+{
+    vec2 q = abs(p)-b+r;
+    return min(max(q.x,q.y),0.0) + length(max(q,0.0)) - r;
+}
+
+vec4 DrawRoundBox(in vec2 cp,in vec4 rect)
+{
+    rect.xy+=rb_config.LineWidth;
+    rect.zw-=rb_config.LineWidth*2.0;
+
+    rect.zw/=2.0;
+
+    vec2 p=(cp-rect.xy-rect.zw);
+
+    float d=sdRoundBox(p,rect.zw,rb_config.Radius);
+
+    vec4 color=(d>0.0)?rb_config.OutColor:rb_config.InColor;
+
+    return mix(color,rb_config.Color,1.0-smoothstep(0.0,rb_config.LineWidth,abs(d)));
 }
     </code>
 </root>

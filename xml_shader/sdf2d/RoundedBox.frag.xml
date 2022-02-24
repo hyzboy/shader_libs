@@ -1,6 +1,6 @@
 <root>
     <in>
-        position4f
+        rectangle4i
     </in>
     <out>FragColor</out>
     <uniform>
@@ -10,6 +10,6 @@
     <module>RoundedBox</module>
 
     <main>
-
+        FragColor=DrawRoundBox(gl_FragCoord.xy,Rectangle);
     </main>
 </root>

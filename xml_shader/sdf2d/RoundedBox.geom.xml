@@ -1,0 +1,21 @@
+<root>
+    <geom in="points" out="triangle_strip" max_vertices="4"/>
+    <in>
+        rectangle4i
+    </in>
+    <out>
+        rectangle4i
+    </out>
+
+    <main>
+        vec2 vlt=gl_in[0].gl_Position.xy;
+        vec2 vrb=gl_in[0].gl_Position.zw;
+
+        gl_Position=vec4(vlt,           vec2(0,1));out_Rectangle=Rectangle[0];EmitVertex();
+        gl_Position=vec4(vlt.x, vrb.y,  vec2(0,1));out_Rectangle=Rectangle[0];EmitVertex();
+        gl_Position=vec4(vrb.x, vlt.y,  vec2(0,1));out_Rectangle=Rectangle[0];EmitVertex();
+        gl_Position=vec4(vrb,           vec2(0,1));out_Rectangle=Rectangle[0];EmitVertex();
+
+        EndPrimitive();
+    </main>
+</root>
