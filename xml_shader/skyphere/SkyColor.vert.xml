@@ -1,0 +1,19 @@
+<root>
+    <in>
+        position3f
+    </in>
+    <out>color3f</out>
+
+    <raw>SkyColor</raw>
+
+    <uniform>
+        SceneInfo r_scene_info;
+    </uniform>
+
+    <main>
+        float z=normalize(reflect(Position,Position)).z;
+
+        out_Color=SkyColor(z);
+        gl_Position=r_scene_info.mvp*vec4(Position,1.0);
+    </main>
+</root>
