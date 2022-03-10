@@ -1,9 +1,10 @@
 <root>
     <struct name="SkyColor">
         vec3 Color;
+        vec3 LowColor;
     </struct>
 
-<code>
-    vec3 GetSkyColor( float z ){return exp2(z/sky_color.Color);}
-</code>
+<code><![CDATA[
+    vec3 GetSkyColor(float z){return z<=0.015?exp2(z/sky_color.Color):sky_color.LowColor;}
+]]></code>
 </root>
