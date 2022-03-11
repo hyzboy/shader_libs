@@ -1,5 +1,6 @@
 <root>
     <files type="glsl">
+        sdfColor.glsl
         sdCircle.glsl
         sdTriangle.glsl
         udSegment.glsl

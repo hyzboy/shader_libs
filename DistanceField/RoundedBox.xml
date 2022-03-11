@@ -6,6 +6,7 @@
         vec4 Radius;            //bottom-right,top-right,bottom-left,top-left
         float LineWidth;
     </struct>
+    <raw>sdfColor</raw>
     <code>
 float sdRoundBox( in vec2 p, in vec2 b, in vec4 r)
 {
@@ -32,9 +33,7 @@ vec4 DrawRoundBox(in vec2 cp,in vec4 rect)
 
     float d=sdRoundBox(p,rect.zw,rb_config.Radius);
 
-    vec4 color=(d>0.0)?rb_config.OutColor:rb_config.InColor;
-
-    return mix(color,rb_config.Color,1.0-smoothstep(0.0,rb_config.LineWidth,abs(d)));
+    return sdfColor(d,rb_config.Color,rb_config.InColor,rb_config.OutColor,rb_config.LineWidth);
 }
     </code>
 </root>
