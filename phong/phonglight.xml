@@ -1,4 +1,8 @@
 <root>
+    <struct name="PhongDirectionLight">
+        vec3 direction;
+    </struct>
+
     <struct name="PhongLight">
         vec3 color;
         vec3 position;
