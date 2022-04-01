@@ -1,0 +1,31 @@
+<root>
+    <struct name="CircleConfig">
+        vec4 Color;
+        vec4 InColor;
+        vec4 OutColor;
+        float Radius;
+        float LineWidth;
+    </struct>
+    <raw>
+        sdfColor
+    </raw>
+    <code>
+/**
+ * 2D正圆距离场
+ * @param p 当前点屏幕空间坐标
+ * @param r 圆半径
+ * @return 当前点距离圆的距离
+ */
+float sdCircle( in vec2 p, in float r )
+{
+    return length(p)-r;
+}
+
+vec4 DrawCircle(in vec2 cp)
+{
+    float d=sdCircle(cp,circle_config.Radius);
+
+
+}
+</code>
+</root>

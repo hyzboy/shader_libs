@@ -3,6 +3,7 @@
         Color.glsl
         ColorSpace.glsl
         Gamma.glsl
+        GetNormal.glsl
         pack_float.glsl
         normal3to2.glsl
         normal2to3.glsl
