@@ -1,0 +1,41 @@
+<root>
+
+    <struct name="LightColor">
+        vec4 diffuse;
+        vec4 ambient;
+    </struct>
+
+    <struct name="Materials">
+        vec3 diffuse;
+        vec3 ambient;
+    </struct>
+
+<code><![CDATA[
+vec3 ApplyDirectionLight(in uint light_index,in vec3 normal)
+{
+    float intensity=max(dot(normal,lights.direction_light[light_index].direction),0.0);
+
+    return max(intensity*lights.color[light_index].diffuse,
+                         lights.color[light_index].ambient);
+}
+
+vec3 ApplyPointLight(in uint light_index,in vec3 normal,in vec3 pos)
+{
+    float intensity=max(dot(normal,lights.direction_light[light_index].pos-pos),0.0);
+
+    return max(intensity*lights.color[light_index].diffuse,
+                         lights.color[light_index].ambient);
+}
+
+vec3 ApplySpotLight(in uint light_index,in vec3 normal,in vec3 pos)
+{
+    vec3 ld=normalize(lights.direction_light[light_index].direction);
+    vec3 sd=normalize((lights.direction_light[light_index].pos-pos).xyz);
+
+    if(dot(sd,ld)>lights.direction_light[light_index].cut_off)
+    {
+
+    }
+}
+]]></code>
+</root>

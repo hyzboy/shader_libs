@@ -1,0 +1,28 @@
+<root>
+    <in>
+        position3f
+        normal
+    </in>
+    <out>
+        color3f
+    </out>
+
+    <uniform>
+        SceneInfo r_scene_info;
+        SimplestMaterials material;
+        PhongDirectionLight sun;
+    </uniform>
+
+    <raw>
+        GetNormal
+    </raw>
+
+    <module>
+        SimplestDirectionLight
+    </module>
+
+    <main>
+        out_Color=SimplestDirectionLight(sun.direction,material.diffuse,material.ambient);
+        gl_Position=r_scene_info.mvp*vec4(Position,1.0);
+    </main>
+</root>

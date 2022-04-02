@@ -1,0 +1,4 @@
+<root>
+    <shader type="vert" filename="PhongFullyRough"/>
+    <shader type="frag" filename="PhongFullyRough"/>
+</root>
