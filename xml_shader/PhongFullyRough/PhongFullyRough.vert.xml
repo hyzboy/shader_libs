@@ -9,8 +9,8 @@
 
     <uniform>
         SceneInfo r_scene_info;
-        SimplestMaterials material;
-        PhongDirectionLight sun;
+        Materials material;
+        SunInfo sun;
     </uniform>
 
     <raw>
@@ -18,11 +18,11 @@
     </raw>
 
     <module>
-        SimplestDirectionLight
+        PhongFullyRough
     </module>
 
     <main>
-        out_Color=SimplestDirectionLight(sun.direction,material.diffuse,material.ambient);
+        out_Color=ApplyDirectionLight(sun.direction,material.diffuse,material.ambient);
         gl_Position=r_scene_info.mvp*vec4(Position,1.0);
     </main>
 </root>

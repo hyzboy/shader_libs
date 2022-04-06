@@ -1,11 +1,11 @@
 <root>
 
     <struct name="DirectionLight">
-        vec3 direction;
+        vec4 direction;
     </struct>
 
     <struct name="PointLight">
-        vec3 position;
+        vec4 position;
         float constant;
         float linear;
         float quadratic;
