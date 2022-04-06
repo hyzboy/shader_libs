@@ -9,8 +9,8 @@
 
     <uniform>
         SceneInfo r_scene_info;
-        Materials material;
-        SunInfo sun;
+        Material color;
+        DirectionLight sun;
     </uniform>
 
     <raw>
@@ -22,7 +22,7 @@
     </module>
 
     <main>
-        out_Color=ApplyDirectionLight(sun.direction,material.diffuse,material.ambient);
+        out_Color=ApplyDirectionLight(sun,color,GetNormal());
         gl_Position=r_scene_info.mvp*vec4(Position,1.0);
     </main>
 </root>
