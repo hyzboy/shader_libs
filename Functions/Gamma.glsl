@@ -1,39 +1,42 @@
-﻿const float GAMMA = 2.2;
+﻿const float GAMMA = 2.4;
 const float INV_GAMMA = 1.0 / GAMMA;
 
 // linear to sRGB approximation
 // see http://chilliant.blogspot.com/2012/08/srgb-approximations-for-hlsl.html
-vec3 Linear2sRGB(vec3 color)
+vec3 Linear2sRGBCheaper(vec3 linear_rgb)
 {
-    return pow(color, vec3(INV_GAMMA));
+    return pow(linear_rgb, vec3(INV_GAMMA));
 }
 
 // sRGB to linear approximation
 // see http://chilliant.blogspot.com/2012/08/srgb-approximations-for-hlsl.html
-vec3 sRGB2Linear(vec3 srgbIn)
+vec3 sRGB2LinearCheaper(vec3 srgb)
 {
-    return vec3(pow(srgbIn.xyz, vec3(GAMMA)));
+    return vec3(pow(srgb.xyz, vec3(GAMMA)));
 }
 
-vec3 sRGB2LinearCheapest(vec3 srgbIn)
+vec3 sRGB2LinearCheapest(vec3 srgb)
 {
-    return srgbIn*srgbIn;
+    return srgb*srgb;
 }
 
-vec3 sRGB2LinearAccurate(vec3 _rgb)
+vec4 sRGB2LinearCheapest(vec4 srgb)
 {
-    //return color <= 0.04045 ? color / 12.92 : pow((color + 0.055) / 1.055, 2.4);
-
-	vec3 lo = _rgb / 12.92;
-	vec3 hi = pow( (_rgb + 0.055) / 1.055, vec3_splat(2.4) );
-	vec3 rgb = mix(hi, lo, vec3(lessThanEqual(_rgb, vec3_splat(0.04045) ) ) );
-	return rgb;
+    return vec4(srgb.rgb*srgb.rgb,srgb.a);
 }
 
-vec3 Linear2sRGBAccurate(vec3 _rgb)
+vec3 sRGB2Linear(vec3 srgb)
 {
-	vec3 lo  = _rgb * 12.92;
-	vec3 hi  = pow(abs(_rgb), vec3_splat(1.0/2.4) ) * 1.055 - 0.055;
-	vec3 rgb = mix(hi, lo, vec3(lessThanEqual(_rgb, vec3_splat(0.0031308) ) ) );
-	return rgb;
+	vec3 lo = srgb / 12.92;
+	vec3 hi = pow( (srgb + 0.055) / 1.055, vec3(GAMMA) );
+
+	return mix(hi, lo, lessThan(_rgb, vec3(0.04045) ) );
+}
+
+vec3 Linear2sRGB(vec3 linear_rgb)
+{
+	vec3 lo  = linear_rgb * 12.92;
+	vec3 hi  = pow(linear_rgb, vec3(INV_GAMMA) ) * 1.055 - 0.055;
+
+	return mix(hi, lo, lessThan(linear_rgb, vec3(0.0031308) ) );
 }
