@@ -22,14 +22,14 @@ Shader部分
 
         GBuffer格式描述部分，这个部分仅用于描述构成GBuffer所需的纹理格式(不包含深度)。如：
 
-        ```glsl
+```glsl
             vec3 BaseColor;
             vec2 Normal;        //normal只保存2个通道
-        ```
+```
 
         GBuffer写入部分，这个部分用于将PixelData数据写入GBuffer纹理。如：
 
-        ```glsl
+```glsl
             //output vec3 GBuffer_BaseColor;
             //output vec2 GBuffer_Normal;
 
@@ -40,11 +40,11 @@ Shader部分
                 GBuffer_BaseColor   =PD.BaseColor;
                 GBuffer_Normal      =normal3to2(PD.Normal);
             }
-        ```
+```
 
         GBuffer读取部分，这个部分用于从GBuffer纹理读取数据并写入PixelData。如：
 
-        ```glsl
+```glsl
             //in texture2d GBuffer_BaseColor;
             //in texture2d GBuffer_Normal;
 
@@ -58,7 +58,7 @@ Shader部分
                 PD.BaseColor=texture2d(GBuffer_BaseColor,PD.ScreenPosition).xyz;
                 PD.Normal   =normal2to3(texture2d(GBuffer_Normal,PD.ScreenPosition).xy);
             }
-        ```
+```
 
 ## 3.光照计算Shader
     该类Shader只做单纯的光照计算，同样它不关心渲染模式是前向还是延迟。它所有的数据来自MaterialAttribute MA，最终结果也写入MA;
