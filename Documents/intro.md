@@ -2,13 +2,14 @@
 
 Shader部分
 
-## 1.MaterialAttribute
-该类Shader用于描述一个象素计算时，应该有的数据。在最简单的情况下，它通常会包含材质的基本属性，以及一部分中间计算数据。比如PixelWorldPosition、PixelScreenPosition、等等，方便接下来的光照和后期计算。如：
+## 1.PixelData
+该类Shader用于描述一个象素计算时，应该有的数据。在最简单的情况下，它通常会包含材质的基本属性，以及一部分中间计算数据。比如WorldPosition、ScreenPosition、等等，方便接下来的光照和后期计算。如：
 ```glsl
-    vec3 BaseColor;
-    vec3 Normal;
-    vec3 WorldPosition;
-    ivec2 ScreenPosition;
+vec3 BaseColor;
+vec3 Normal;
+
+vec3 WorldPosition;
+ivec2 ScreenPosition;
 ```
 注：我们这里并不需要定义一个结构。Shader生成器会自动处理它。
 
@@ -54,8 +55,20 @@ void ReadPixelData()
 
     PD.BaseColor=texture2d(GBuffer_BaseColor,PD.ScreenPosition).xyz;
     PD.Normal   =normal2to3(texture2d(GBuffer_Normal,PD.ScreenPosition).xy);
+
+    PD.Ambient  =GetAmbientColor();
 }
 ```
 
 ## 3.光照计算Shader
-该类Shader只做单纯的光照计算，同样它不关心渲染模式是前向还是延迟。它所有的数据来自PixelData，最终结果也写入PD;
+该类Shader只做单纯的光照计算，同样它不关心渲染模式是前向还是延迟。它所有的数据来自PixelData，最终结果也写入PD; 如：
+```glsl
+//uniform DirectionLight direction_light;
+
+vec3 ApplyDirectionLight(DirectionLight light,PixelData pd)
+{
+    float intensity=max(dot(pd.Normal,light.direction),0.0);
+    
+    return max(pd.BaseColor*intensity+pd.Ambient);
+}
+```
