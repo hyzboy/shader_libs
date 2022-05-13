@@ -1,8 +1,8 @@
-#材质结构说明
+# 材质结构说明
 
 Shader部分
 
-## 1.PixelData
+## 1.MaterialInfo
 该类Shader用于描述一个象素计算时，应该有的数据。在最简单的情况下，它通常会包含材质的基本属性，以及一部分中间计算数据。比如WorldPosition、ScreenPosition、等等，方便接下来的光照和后期计算。如：
 ```glsl
 vec3 BaseColor;
@@ -25,50 +25,46 @@ vec3 BaseColor;
 vec2 Normal;        //normal只保存2个通道
 ```
 
-GBuffer写入部分，这个部分用于将PixelData数据写入GBuffer纹理。如：
+GBuffer写入部分，这个部分用于将MaterialInfo数据写入GBuffer纹理。如：
 
 ```glsl
 //output vec3 GBuffer_BaseColor;
 //output vec2 GBuffer_Normal;
 
-//uniform PixelData PD;
-
-void WritePixelData()
+void WriteMaterialInfo(MaterialInfo MI)
 {
-    GBuffer_BaseColor   =PD.BaseColor;
-    GBuffer_Normal      =normal3to2(PD.Normal);
+    GBuffer_BaseColor   =MI.BaseColor;
+    GBuffer_Normal      =normal3to2(MI.Normal);
 }
 ```
 
-GBuffer读取部分，这个部分用于从GBuffer纹理读取数据并写入PixelData。如：
+GBuffer读取部分，这个部分用于从GBuffer纹理读取数据并写入MaterialInfo。如：
 
 ```glsl
 //in texture2d GBuffer_BaseColor;
 //in texture2d GBuffer_Normal;
 
-//uniform PixelData PD;
-
-void ReadPixelData()
+void ReadMaterialInfo(MaterialInfo MI)
 {
-    PD.ScreenPosition=....
-    PD.WorldPosition=....
+    MI.ScreenPosition=....
+    MI.WorldPosition=....
 
-    PD.BaseColor=texture2d(GBuffer_BaseColor,PD.ScreenPosition).xyz;
-    PD.Normal   =normal2to3(texture2d(GBuffer_Normal,PD.ScreenPosition).xy);
+    MI.BaseColor=texture2d(GBuffer_BaseColor,MI.ScreenPosition).xyz;
+    MI.Normal   =normal2to3(texture2d(GBuffer_Normal,MI.ScreenPosition).xy);
 
-    PD.Ambient  =GetAmbientColor();
+    MI.Ambient  =GetAmbientColor();
 }
 ```
 
 ## 3.光照计算Shader
-该类Shader只做单纯的光照计算，同样它不关心渲染模式是前向还是延迟。它所有的数据来自PixelData，最终结果也写入PD; 如：
+该类Shader只做单纯的光照计算，同样它不关心渲染模式是前向还是延迟。它所有的数据来自MaterialInfo; 如：
 ```glsl
 //uniform DirectionLight direction_light;
 
-vec3 ApplyDirectionLight(DirectionLight light,PixelData pd)
+vec3 ApplyDirectionLight(DirectionLight light,MaterialInfo MI)
 {
-    float intensity=max(dot(pd.Normal,light.direction),0.0);
+    float intensity=max(dot(MI.Normal,light.direction),0.0);
     
-    return max(pd.BaseColor*intensity+pd.Ambient);
+    return max(MI.BaseColor*intensity+MI.Ambient);
 }
 ```
