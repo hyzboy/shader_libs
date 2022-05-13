@@ -31,10 +31,10 @@ GBuffer写入部分，这个部分用于将MaterialInfo数据写入GBuffer纹理
 //output vec3 GBuffer_BaseColor;
 //output vec2 GBuffer_Normal;
 
-void WriteMaterialInfo(MaterialInfo MI)
+void WriteMaterialInfo2GBuffer(MaterialInfo MI)
 {
-    GBuffer_BaseColor   =MI.BaseColor;
-    GBuffer_Normal      =normal3to2(MI.Normal);
+    GBuffer_BaseColor.rgb   =MI.BaseColor;
+    GBuffer_Normal.rg       =normal3to2(MI.Normal);
 }
 ```
 
@@ -44,13 +44,13 @@ GBuffer读取部分，这个部分用于从GBuffer纹理读取数据并写入Mat
 //in texture2d GBuffer_BaseColor;
 //in texture2d GBuffer_Normal;
 
-void ReadMaterialInfo(MaterialInfo MI)
+void ReadGBuffer2MaterialInfo(MaterialInfo MI)
 {
     MI.ScreenPosition=....
     MI.WorldPosition=....
 
-    MI.BaseColor=texture2d(GBuffer_BaseColor,MI.ScreenPosition).xyz;
-    MI.Normal   =normal2to3(texture2d(GBuffer_Normal,MI.ScreenPosition).xy);
+    MI.BaseColor=texture2d(GBuffer_BaseColor,MI.ScreenPosition).rgb;
+    MI.Normal   =normal2to3(texture2d(GBuffer_Normal,MI.ScreenPosition).rg);
 
     MI.Ambient  =GetAmbientColor();
 }
