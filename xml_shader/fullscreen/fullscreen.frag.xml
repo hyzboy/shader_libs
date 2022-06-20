@@ -1,0 +1,10 @@
+<root>
+    <in>texcoord2f</in>
+    <out>
+        FragColor
+    </out>
+
+    <main>
+        FragColor=vec4(TexCoord,0,1);
+    </main>
+</root>

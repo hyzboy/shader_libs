@@ -1,0 +1,4 @@
+<root>
+    <shader type="vert" filename="fullscreen"/>
+    <shader type="frag" filename="fullscreen"/>
+</root>
