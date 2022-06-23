@@ -1,0 +1,20 @@
+<root>
+    <in>
+        position3f
+        normal
+    </in>
+    <out>
+        position3f
+        normal
+    </out>
+    <uniform>
+        CameraInfo g_camera;
+        SceneInfo r_scene_info;
+    </uniform>
+
+    <main>
+        out_Position=(r_scene_info.model*vec4(Position,1.0)).xyz;
+        out_Normal=(r_scene_info.model*vec4(Normal,0.0)).xyz;
+        gl_Position=g_camera.vp*vec4(out_Position,1.0);
+    </main>
+</root>

@@ -1,0 +1,4 @@
+<root>
+    <shader type="vert" filename="VertexNormal"/>
+    <shader type="frag" filename="VertexNormal"/>
+</root>
