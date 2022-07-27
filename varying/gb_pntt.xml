@@ -1,6 +1,0 @@
-<root>
-    <varying type="vec3" name="Position"/>
-    <varying type="vec3" name="Normal"/>
-    <varying type="vec3" name="Tangent"/>
-    <varying type="vec2" name="TexCoord"/>
-</root>

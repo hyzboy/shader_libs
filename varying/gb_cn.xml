@@ -1,4 +1,0 @@
-<root>
-    <varying type="vec4" name="GB_Color"/>
-    <varying type="vec4" name="GB_Normal"/>
-</root>

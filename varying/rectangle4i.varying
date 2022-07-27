@@ -1,1 +1,1 @@
-ivec4 Rectangle;
+flat ivec4 Rectangle;   //矩形左上宽高

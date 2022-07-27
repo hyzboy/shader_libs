@@ -1,4 +1,0 @@
-﻿<root>
-    <varying type="vec3" name="Normal"/>
-    <varying type="vec3" name="Tangent"/>
-</root>

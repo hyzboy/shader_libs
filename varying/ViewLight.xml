@@ -1,4 +1,0 @@
-<root>
-    <varying type="vec3" name="LightDirection" comment="灯光方向"/>
-    <varying type="vec3" name="ViewDirection" comment="观察方向"/>
-</root>

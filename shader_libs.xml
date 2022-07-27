@@ -1,7 +1,6 @@
 <root>
     <folder>
         modules
-        varying
         Functions
         DistanceField
         2dVector

@@ -1,4 +1,0 @@
-<root>
-	<varying type="ivec4" name="Rectangle" interpolation="flat" comment="矩形左上宽高"/>
-</root>
-
