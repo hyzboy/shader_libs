@@ -1,0 +1,2 @@
+vec3 LightDirection;
+vec3 ViewDirection;

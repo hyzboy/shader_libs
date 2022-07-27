@@ -1,0 +1,3 @@
+﻿vec3 TangentLightPos;
+vec3 TangentViewPos;
+vec3 TangentFragPos;

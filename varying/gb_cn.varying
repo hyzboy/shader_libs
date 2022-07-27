@@ -1,0 +1,2 @@
+vec4 GB_Color;
+vec4 GB_Normal;

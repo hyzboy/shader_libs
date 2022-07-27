@@ -1,0 +1,2 @@
+﻿vec3 Normal;
+vec3 Tangent;

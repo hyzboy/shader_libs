@@ -1,0 +1,2 @@
+vec4 BaseColor_Metallic;
+vec4 Normal_Roughness;

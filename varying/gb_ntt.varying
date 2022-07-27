@@ -1,0 +1,3 @@
+vec3 Normal;
+vec3 Tangent;
+vec2 TexCoord;
