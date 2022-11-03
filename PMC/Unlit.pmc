@@ -1,0 +1,14 @@
+[PMC]       //整个PMC内的所有成员，会被封装成一个名为PMC的结构供shader使用
+vec4 Color;
+
+[SDR]
+vec4 SDRMain(in PMC pmc)
+{
+    return vec4(pmc.Color.rgb,1.0);
+}
+
+[HDR]
+vec4 HDRMain(in PMC pmc)
+{
+    return vec4(pmc.Color.rgb,1.0);
+}

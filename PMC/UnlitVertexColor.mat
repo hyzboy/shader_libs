@@ -1,0 +1,20 @@
+[PMC]
+Unlit
+
+[Vertex Shader]
+[Vertex Shader/Vertex Input]
+vec4 Color;
+
+[Vertex Shader/Output]      //该字段会被定义成名称为Output的输出结构
+vec4 Color;
+
+void VSMain()
+{
+    Output.Color=Color;
+}
+
+[Fragment Shader]
+void FSMain(inout PMC pmc)
+{
+    pmc.Color=Input.Color;  //Input结构来自于上一段shader的Output结构
+}

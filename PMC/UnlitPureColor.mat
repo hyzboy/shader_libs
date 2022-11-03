@@ -1,0 +1,13 @@
+[PMC]
+Unlit
+
+[Fragment Shader]
+uniform ColorMaterial
+{
+    vec4 Color;
+}color_material;
+
+void FSMain(inout PMC pmc)
+{
+    pmc.Color=color_material.Color;
+}
